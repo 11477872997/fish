@@ -7,5 +7,12 @@ function api_img(data) {
         data
     })
 }
+function api_city(cityIds) {  
+    const url = `http://aider.meizu.com/app/weather/listWeather?cityIds=${cityIds}`;
+    return request({
+        url: url,
+        method: 'get'
+    })
+}
 
-module.exports = {api_img}
+module.exports = {api_img,api_city}

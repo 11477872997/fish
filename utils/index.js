@@ -24,6 +24,13 @@ async function initRom(wechaty,time,name,sedDate) {
        
     });
 }
+/**
+ * 
+ * @param {*} wechaty  微信回调
+ * @param {*} time   定时任务时间
+ * @param {*} name   群名
+ * @param {*} sedDate  发送的数据
+ */
 // 创建微信个人摸鱼定时任务
 async function initDay(wechaty,time,name,sedDate) {
     console.log(`已经设个人定时任务`);
