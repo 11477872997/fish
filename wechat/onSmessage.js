@@ -5,7 +5,8 @@ const { api_img} = require('../api/index');
 const  getWeatherInfo = require('../api/getWeatherInfo');
 // 监听对话
 async function onMessage(msg, bot) {
-  const contact = msg.talker(); // 发消息人
+  try {
+    const contact = msg.talker(); // 发消息人
   const contents = msg.text().trim(); // 消息内容
   const room = msg.room(); // 是否是群消息
   const alias = await contact.alias() || await contact.name(); // 发消息人备注
@@ -49,6 +50,10 @@ async function onMessage(msg, bot) {
       await msg.say(msgs);
     }
   }
+  } catch (error) {
+      console.log('错误处理onMessage',error)
+  }
+  
 }
 
 module.exports = onMessage
