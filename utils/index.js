@@ -48,4 +48,5 @@ async function initDay(wechaty,time,name,sedDate) {
     });
 }
 
+
 module.exports = {delay,initRom,initDay}

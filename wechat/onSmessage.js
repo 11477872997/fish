@@ -31,9 +31,9 @@ async function onMessage(msg, bot) {
     }
     if(topic === '232社畜中心'  && contents.indexOf(`@心有林栖`) !== -1 && contents.indexOf('打胶') !== -1){
         let res = await api_img();
-        let regular = res.data.data[0].urls.regular;
+        let regular = res.data.data[0].urls.small;
         let fileBox = FileBox.fromUrl(regular);
-        await msg.say(fileBox);
+        msg.say(fileBox);
       }
   } else if (isText) {
     // 如果非群消息 目前只处理文字消息

@@ -18,3 +18,4 @@ wechaty.on('message', message => {
 });
 wechaty.on('logout', onLogout);
 wechaty.start();
+
