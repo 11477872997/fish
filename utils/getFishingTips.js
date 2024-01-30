@@ -67,15 +67,15 @@ let getFishingTips = function()  {
   let  holidays = HolidayUtil.getHolidays(year);
   let  list = getMakeshiftShifts(holidays);
    handleMakeUpShifts(list,template);
-  let counter = 5;
+  let counter = 6;
   let arr = [];
   const today = dayjs().startOf('day');
   const todayText = today.format('YYYY-MM-DD dddd');
   const todays = dayjs().day();
   const weekDays = 5 - todays; 
 const weekDay = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
-  for (let i = 0; i < counter; i++) {
-    let objs = nextLongHoliday(solar, i);
+for (let i = 1; i < counter; i++) {
+  let objs = nextLongHoliday(solar, i);
     for (const key of template) {
       if (key.name == objs.name) {
         arr.push({
@@ -88,6 +88,7 @@ const weekDay = ['周日', '周一', '周二', '周三', '周四', '周五', '�
       }
     }
   }
+  console.log('arr',template)
   let touchTheFish = `
   【摸鱼办】提醒您：\n
 🍁今天是${todayText}\n
@@ -110,7 +111,6 @@ if(weekDay[todays] === '周日'){
   } 
   
 }
-console.log('weekDays-------------',weekDays)
   touchTheFish += `\n`;
   arr.forEach(element => {
     let ab = `${element.icon}距离${element.name}还有${element.days}天(${element.aFewDaysOff})\n`;
