@@ -3,12 +3,13 @@ const onScan = require('./wechat/onScan');
 const onLogout = require('./wechat/onSlogout');
 const onLogin = require('./wechat/onLogin');
 const onMessage = require('./wechat/onSmessage');
+
 const wechaty =  WechatyBuilder.build({
-    name: "wechat-assistant", // generate xxxx.memory-card.json and save login data for the next login
-    puppet: "wechaty-puppet-wechat",
-    puppetOptions: {
-      uos: true
-    }
+    // name: "wechat", // generate xxxx.memory-card.json and save login data for the next login
+    // puppet: "wechaty-puppet-wechat",
+    // puppetOptions: {
+    //   uos: true
+    // }
   });
 // const wechaty = WechatyBuilder.build()
 
@@ -21,4 +22,5 @@ wechaty.on('message', message => {
 });
 wechaty.on('logout', onLogout);
 wechaty.start();
+
 

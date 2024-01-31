@@ -3,26 +3,30 @@ const getlistCity = require('../utils/city');
 function getWeatherInfo(name) {
     let a  = name;
     return new Promise(async (resolve, reject) => {
-        const res = await api_city(getlistCity(a));
-        const { indexes, realtime, weathers,city } = res.data.value[0];
-        // 气温推荐
-        const { content, name, level } =
-            indexes[getRandomIntInclusive(0, indexes.length - 1)];
-        // 实时天气
-        const { sendibleTemp, temp, weather: wea, wD, wS } = realtime;
-        const data = {
-            city,
-            weathers,
-            content,
-            name,
-            level,
-            temp,
-            sendibleTemp,
-            wea,
-            wD,
-            wS
-        };
-        resolve(data);
+        try {          
+            const res = await api_city(getlistCity(a));
+            const { indexes, realtime, weathers,city } = res.data.value[0];
+            // 气温推荐
+            const { content, name, level } =
+                indexes[getRandomIntInclusive(0, indexes.length - 1)];
+            // 实时天气
+            const { sendibleTemp, temp, weather: wea, wD, wS } = realtime;
+            const data = {
+                city,
+                weathers,
+                content,
+                name,
+                level,
+                temp,
+                sendibleTemp,
+                wea,
+                wD,
+                wS
+            };
+            resolve(data);
+        } catch (error) {
+            console.log('getWeatherInfo接口错误')
+        }
     })
 
 }

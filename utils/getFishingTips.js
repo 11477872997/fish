@@ -74,7 +74,7 @@ let getFishingTips = function()  {
   const todays = dayjs().day();
   const weekDays = 5 - todays; 
 const weekDay = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
-for (let i = 1; i < counter; i++) {
+for (let i = 0; i < counter; i++) {
   let objs = nextLongHoliday(solar, i);
     for (const key of template) {
       if (key.name == objs.name) {
@@ -88,7 +88,6 @@ for (let i = 1; i < counter; i++) {
       }
     }
   }
-  console.log('arr',template)
   let touchTheFish = `
   【摸鱼办】提醒您：\n
 🍁今天是${todayText}\n
